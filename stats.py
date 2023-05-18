@@ -38,7 +38,7 @@ def wc_maker(selected_user, df):
         df = df[df['user'] == selected_user]
     temp = df[df['user'] != 'group_notification']
     temp = temp[temp['message'] != '<Media omitted>\n']
-    f = open('C://Users/abhay/wp_chat_analyser/stop_hinglish.txt', 'r')
+    f = open('stop_hinglish.txt', 'r')
     stop_words = f.read()
     def remove_stop_words(message):
         y = []
@@ -59,7 +59,7 @@ def common_words(selected_user, df):
         df =  df[df['user'] == selected_user]
     temp = df[df['user'] != 'group_notification']
     temp = temp[temp['message'] != '<Media omitted>\n']
-    f = open('C://Users/abhay/wp_chat_analyser/stop_hinglish.txt', 'r')
+    f = open('stop_hinglish.txt', 'r')
     stop_words = f.read()
     words = []
     for message in temp['message']:
