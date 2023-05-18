@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.sidebar.title("Chat Analyser")
+st.sidebar.header("By Abhay")
+st.sidebar.text("Instructions:-\n1.Export any chat from your whatsapp.\n2.Upload that txt file below and run analysis.")
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
