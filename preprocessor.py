@@ -6,7 +6,15 @@ def preprocess(data):
     dates = re.findall(pattern, data)
     df = pd.DataFrame({'user_message': messages, 'message_date': dates})
 
-    df['message_date'] = pd.to_datetime(df['message_date'], format='%m/%d/%y, %H:%M %p - ')
+    chk = 0
+    if "am" in df['message_date'][0]:
+        chk = 1
+    df['message_date'].replace(to_replace="am", value="AM")
+    df['message_date'].replace(to_replace="pm", value="PM")
+    if chk == 0:
+        df['message_date'] = pd.to_datetime(df['message_date'], format='%m/%d/%y, %H:%M %p - ')
+    if chk == 1:
+        df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%y, %H:%M %p - ')
 
     df.rename(columns={'message_date': 'date'}, inplace=True)
 
