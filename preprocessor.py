@@ -9,6 +9,8 @@ def preprocess(data):
     chk = 0
     if "am" in df['message_date'][0]:
         chk = 1
+     if "pm" in df['message_date'][0]:
+        chk = 1
     df['message_date'].replace(to_replace="am", value="AM")
     df['message_date'].replace(to_replace="pm", value="PM")
     if chk == 0:
